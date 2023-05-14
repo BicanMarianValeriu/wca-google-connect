@@ -85,9 +85,9 @@ class Admin {
 						<a href="%3$s" class="button button-primary">%4$s</a>
 					</p>
 				</div>',
-				esc_html__( 'Awesome, WCA: Google Tools Extension is activated!', 'wca-google' ),
+				esc_html__( 'Awesome, WCA: Google Tools extension is activated!', 'wca-google' ),
 				esc_html__( 'Go to Theme Options in order to setup your Google services.', 'wca-google' ),
-				esc_url( admin_url( '/themes.php?page=wecodeart#wca-extensions' ) ),
+				esc_url( admin_url( '/themes.php?page=wecodeart&tab=extensions' ) ),
 				esc_html__( 'Awesome, show me the options!', 'wca-google' )
 			),
 			[
