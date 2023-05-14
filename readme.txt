@@ -50,6 +50,11 @@ The options are located under Extensions panel in Appearance -> Theme Options ->
 
 == Changelog ==
 
+= 2.0.2 - 2023-05-15 =
+Update: Romanian Translations wording.
+Tweak: Admin interface tweaks and merge defaults.
+Fix: Properly load translations.
+
 = 2.0.0 - 2022-01-15 =
 Update: Update to block based version of WeCodeArt Framework.
 

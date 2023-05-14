@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WCA: Google Tools Extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-14 22:58+0000\n"
+"POT-Creation-Date: 2023-05-14 07:51+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -16,19 +16,19 @@ msgstr ""
 "X-Loco-Version: 2.5.6; wp-5.9-RC2-52567\n"
 "X-Domain: wca-google"
 
-#: admin/class-admin.php:94
+#: admin/class-admin.php:91
 msgid "Awesome, show me the options!"
 msgstr ""
 
-#: admin/class-admin.php:91
-msgid "Awesome, WCA: Google Tools Extension is activated!"
+#: admin/class-admin.php:88
+msgid "Awesome, WCA: Google Tools extension is activated!"
 msgstr ""
 
 #. Author of the plugin
 msgid "Bican Marian Valeriu"
 msgstr ""
 
-#: admin/class-admin.php:92
+#: admin/class-admin.php:89
 msgid "Go to Theme Options in order to setup your Google services."
 msgstr ""
 
