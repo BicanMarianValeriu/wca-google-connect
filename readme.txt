@@ -3,10 +3,10 @@ Contributors: wecodeart
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: Google Adsense, Google Webmaster Tools, Google Analytics
-Requires at least: 5.0
-Tested up to: 5.9
-Stable tag: 2.0.1
-Version: 2.0.1
+Requires at least: 6.0
+Tested up to: 6.2
+Stable tag: 2.0.2
+Version: 2.0.2
 Requires PHP: 7.0
 
 A simple extension for WeCodeArt Framework used to verify site ownership, add Google Analytics and connect your Adsense acount.
