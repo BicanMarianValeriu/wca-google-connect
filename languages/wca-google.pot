@@ -1,0 +1,54 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: WCA: Google Tools Extension\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-01-14 22:58+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.5.6; wp-5.9-RC2-52567\n"
+"X-Domain: wca-google"
+
+#: admin/class-admin.php:94
+msgid "Awesome, show me the options!"
+msgstr ""
+
+#: admin/class-admin.php:91
+msgid "Awesome, WCA: Google Tools Extension is activated!"
+msgstr ""
+
+#. Author of the plugin
+msgid "Bican Marian Valeriu"
+msgstr ""
+
+#: admin/class-admin.php:92
+msgid "Go to Theme Options in order to setup your Google services."
+msgstr ""
+
+#. URI of the plugin
+#. Author URI of the plugin
+msgid "https://www.wecodeart.com/"
+msgstr ""
+
+#: includes/class-activator.php:36
+msgid ""
+"This plugin requires WeCodeArt Framework (or a skin) installed and active."
+msgstr ""
+
+#. Description of the plugin
+msgid ""
+"WCA Google Tools extension for WeCodeArt Framework - Allows you to verify "
+"site ownership, add Google Analytics and connect Google Adsense Publisher "
+"account."
+msgstr ""
+
+#. Name of the plugin
+msgid "WCA: Google Tools Extension"
+msgstr ""
