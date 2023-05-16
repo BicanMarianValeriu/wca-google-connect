@@ -52,7 +52,10 @@ The options are located under Extensions panel in Appearance -> Theme Options ->
 
 = 2.0.2 - 2023-05-15 =
 Update: Romanian Translations wording.
+Update: Remove admin lodash pickBy dependency and use plain javascript
 Tweak: Admin interface tweaks and merge defaults.
+Added: Settings link from plugins listing to the extension options page.
+Added: Leave a review link on plugins listing.
 Fix: Properly load translations.
 
 = 2.0.0 - 2022-01-15 =

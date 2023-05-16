@@ -87,7 +87,7 @@ class Admin {
 				</div>',
 				esc_html__( 'Awesome, WCA: Google Tools extension is activated!', 'wca-google' ),
 				esc_html__( 'Go to Theme Options in order to setup your Google services.', 'wca-google' ),
-				esc_url( admin_url( '/themes.php?page=wecodeart&tab=extensions' ) ),
+				esc_url( admin_url( '/themes.php?page=wecodeart&tab=extensions#wca-google' ) ),
 				esc_html__( 'Awesome, show me the options!', 'wca-google' )
 			),
 			[
@@ -154,6 +154,48 @@ class Admin {
 		wp_localize_script( $this->make_handle(), 'wecodeartGoogleExtension', [
 			'fields' => $config
 		] );
+	}
+
+	/**
+	 * Meta
+	 *
+	 * @since	1.0.0
+	 * @version	1.0.0
+	 */
+	public function meta( $plugin_meta, $plugin_file ) {		
+		// If we are not on the correct plugin, abort.
+		if( WCA_GOOGLE_EXT_BASE !== $plugin_file) {
+			return $plugin_meta;
+		}
+
+		$review_link  = '<a href="https://wordpress.org/support/plugin/wca-google-tools-extension/reviews/?filter=5" aria-label="' . esc_attr__( 'Review plugin on WordPress.org', 'wca-google' ) . '" target="_blank">';
+		$review_link .= esc_html__( 'Leave a Review', 'wca-google' );
+		$review_link .= '</a>';
+
+		return array_merge( $plugin_meta, [
+			'review' => $review_link,
+		] );
+	}
+
+	/**
+	 * Links
+	 *
+	 * @since	1.0.0
+	 * @version	1.0.0
+	 */
+	public function links( $plugin_links, $plugin_file ) {
+		// If we are not on the correct plugin, abort.
+		if ( WCA_GOOGLE_EXT_BASE !== $plugin_file ) {
+			return $plugin_links;
+		}
+
+		$settings_link  = '<a href="' . esc_url( admin_url( '/themes.php?page=wecodeart&tab=extensions#wca-google' ) ) . '" aria-label="' . esc_attr__( 'Navigate to the extension settings.', 'wca-google' ) . '">';
+		$settings_link .= esc_html__( 'Settings', 'wca-google' );
+		$settings_link .= '</a>';
+
+		array_unshift( $plugin_links, $settings_link );
+
+		return $plugin_links;
 	}
 
 	/**

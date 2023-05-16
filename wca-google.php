@@ -33,10 +33,11 @@ defined( 'WPINC' ) || die;
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'WCA_GOOGLE_EXT', __FILE__ );
-define( 'WCA_GOOGLE_EXT_VER', '2.0.2' );
-define( 'WCA_GOOGLE_EXT_DIR', plugin_dir_path( WCA_GOOGLE_EXT ) );
-define( 'WCA_GOOGLE_EXT_URL', plugin_dir_url( WCA_GOOGLE_EXT ) );
+define( 'WCA_GOOGLE_EXT', 		__FILE__ );
+define( 'WCA_GOOGLE_EXT_VER', 	get_file_data( WCA_GOOGLE_EXT, [ 'Version' ] )[0] ); // phpcs:ignore
+define( 'WCA_GOOGLE_EXT_DIR', 	plugin_dir_path( WCA_GOOGLE_EXT ) );
+define( 'WCA_GOOGLE_EXT_URL', 	plugin_dir_url( WCA_GOOGLE_EXT ) );
+define( 'WCA_GOOGLE_EXT_BASE', 	plugin_basename( WCA_GOOGLE_EXT ) );
 
 require_once( __DIR__ . '/includes/class-autoloader.php' );
 

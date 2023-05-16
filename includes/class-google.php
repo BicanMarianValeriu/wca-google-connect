@@ -168,6 +168,8 @@ class Google implements Integration {
 
 		$this->loader->add_action( 'admin_init', 			$admin, 'if_active' );
 		$this->loader->add_action( 'admin_enqueue_scripts',	$admin, 'assets' 	);
+		$this->loader->add_filter( 'plugin_action_links',	$admin, 'links', 	20, 2 );
+		$this->loader->add_filter( 'plugin_row_meta',		$admin, 'meta', 	20, 2 );
 	}
 
 	/**
