@@ -38,9 +38,9 @@ function optionsPanel(panels) {
 }
 
 const Options = (props) => {
-    const { isRequesting, wecodeartSettings, saveEntityRecord, createNotice } = props;
+    const { settings, wecodeartSettings, saveSettings, isRequesting, createNotice } = props;
 
-    if (isRequesting || !wecodeartSettings) {
+    if (isRequesting || !(settings ?? wecodeartSettings)) {
         return <Placeholder {...{
             icon: <Spinner />,
             label: __('Loading', 'wca-google'),
@@ -53,11 +53,12 @@ const Options = (props) => {
 
     const [loading, setLoading] = useState(null);
     const extensionOpts = fields.map(a => a.id);
-    const apiOptions = Object.fromEntries(Object.entries(wecodeartSettings).filter(([key]) => extensionOpts.includes(key)));
+    const apiOptions = Object.fromEntries(Object.entries(settings ?? wecodeartSettings).filter(([key]) => extensionOpts.includes(key)));
     const [formData, setFormData] = useState(apiOptions);
 
     const handleNotice = () => {
         setLoading(false);
+
         return createNotice('success', __('Settings saved.', 'wca-google'));
     };
 
@@ -110,14 +111,7 @@ const Options = (props) => {
                 icon={loading && <Spinner />}
                 onClick={() => {
                     setLoading(true);
-
-                    const value = Object.keys(formData).reduce((result, key) => {
-                        result[key] = formData[key] === '' ? 'unset' : formData[key];
-
-                        return result;
-                    }, {});
-
-                    saveEntityRecord('wecodeart', 'settings', value).then(handleNotice);
+                    saveSettings(formData, handleNotice);
                 }}
                 {...{ disabled: loading }}
             >

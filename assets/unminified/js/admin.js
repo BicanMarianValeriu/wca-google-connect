@@ -94,7 +94,7 @@ __webpack_require__.r(__webpack_exports__);
  * @package: 	WeCodeArt Google Connect Extension
  * @author: 	Bican Marian Valeriu
  * @license:	https://www.wecodeart.com/
- * @version:	1.0.0
+ * @version:	2.0.2
  */
 
 const {
@@ -130,12 +130,13 @@ function optionsPanel(panels) {
 }
 const Options = props => {
   const {
-    isRequesting,
+    settings,
     wecodeartSettings,
-    saveEntityRecord,
+    saveSettings,
+    isRequesting,
     createNotice
   } = props;
-  if (isRequesting || !wecodeartSettings) {
+  if (isRequesting || !(settings !== null && settings !== void 0 ? settings : wecodeartSettings)) {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Placeholder, {
       icon: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Spinner, null),
       label: __('Loading', 'wca-google'),
@@ -152,7 +153,7 @@ const Options = props => {
   });
   const [loading, setLoading] = useState(null);
   const extensionOpts = fields.map(a => a.id);
-  const apiOptions = Object.fromEntries(Object.entries(wecodeartSettings).filter(_ref2 => {
+  const apiOptions = Object.fromEntries(Object.entries(settings !== null && settings !== void 0 ? settings : wecodeartSettings).filter(_ref2 => {
     let [key] = _ref2;
     return extensionOpts.includes(key);
   }));
@@ -209,11 +210,7 @@ const Options = props => {
     icon: loading && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Spinner, null),
     onClick: () => {
       setLoading(true);
-      const value = Object.keys(formData).reduce((result, key) => {
-        result[key] = formData[key] === '' ? 'unset' : formData[key];
-        return result;
-      }, {});
-      saveEntityRecord('wecodeart', 'settings', value).then(handleNotice);
+      saveSettings(formData, handleNotice);
     },
     disabled: loading
   }, loading ? '' : __('Save', 'wecodeart')));

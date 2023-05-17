@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: WCA: Google Tools Extension\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-14 22:52+0000\n"
-"PO-Revision-Date: 2023-05-14 07:51+0000\n"
+"PO-Revision-Date: 2023-05-17 15:15+0000\n"
 "Last-Translator: \n"
 "Language-Team: Română\n"
 "Language: ro_RO\n"
@@ -22,7 +22,6 @@ msgid "Awesome, show me the options!"
 msgstr "Minunat, arată-mi opțiunile!"
 
 #: admin/class-admin.php:88
-#, fuzzy
 #| msgid "Awesome, WCA: Google Tools Extension is activated!"
 msgid "Awesome, WCA: Google Tools extension is activated!"
 msgstr "Minunat, WCA: Extensia Instrumente Google este activată!"
