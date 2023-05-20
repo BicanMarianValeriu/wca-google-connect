@@ -36,6 +36,6 @@ class I18N {
 	 * @since    1.0.0
 	 */
 	public function load_plugin_textdomain() {
-		load_plugin_textdomain( 'wca-google', false, dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages' );
+		load_plugin_textdomain( 'wca-google', false, dirname( dirname( WCA_GOOGLE_EXT_BASE ) ) . '/languages' );
 	}
 }
