@@ -87,7 +87,7 @@ class Admin {
 				</div>',
 				esc_html__( 'Awesome, WCA: Google Tools extension is activated!', 'wca-google' ),
 				esc_html__( 'Go to Theme Options in order to setup your Google services.', 'wca-google' ),
-				esc_url( admin_url( '/themes.php?page=wecodeart&tab=extensions#wca-google' ) ),
+				esc_url( admin_url( '/themes.php?page=wecodeart&tab=plugins#wca-google' ) ),
 				esc_html__( 'Awesome, show me the options!', 'wca-google' )
 			),
 			[
@@ -189,7 +189,7 @@ class Admin {
 			return $plugin_links;
 		}
 
-		$settings_link  = '<a href="' . esc_url( admin_url( '/themes.php?page=wecodeart&tab=extensions#wca-google' ) ) . '" aria-label="' . esc_attr__( 'Navigate to the extension settings.', 'wca-google' ) . '">';
+		$settings_link  = '<a href="' . esc_url( admin_url( '/themes.php?page=wecodeart&tab=plugins#wca-google' ) ) . '" aria-label="' . esc_attr__( 'Navigate to the extension settings.', 'wca-google' ) . '">';
 		$settings_link .= esc_html__( 'Settings', 'wca-google' );
 		$settings_link .= '</a>';
 
