@@ -88,7 +88,7 @@ class Admin {
 				esc_html__( 'Awesome, WCA: Google Tools extension is activated!', 'wca-google' ),
 				esc_html__( 'Go to Theme Options in order to setup your Google services.', 'wca-google' ),
 				esc_url( admin_url( '/themes.php?page=wecodeart&tab=plugins#wca-google' ) ),
-				esc_html__( 'Awesome, show me the options!', 'wca-google' )
+				esc_html__( 'Show me the options!', 'wca-google' )
 			),
 			[
 				'id'			=> self::NOTICE_ID,

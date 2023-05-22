@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: WCA: Google Tools Extension\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-14 22:52+0000\n"
-"PO-Revision-Date: 2023-05-17 15:15+0000\n"
+"PO-Revision-Date: 2023-05-22 01:55+0000\n"
 "Last-Translator: \n"
 "Language-Team: Română\n"
 "Language: ro_RO\n"
@@ -15,11 +15,6 @@ msgstr ""
 "X-Generator: Loco https://localise.biz/\n"
 "X-Loco-Version: 2.5.6; wp-5.9-RC2-52567\n"
 "X-Domain: wca-google"
-
-#: admin/class-admin.php:91
-#| msgid "Awesome, show me the options"
-msgid "Awesome, show me the options!"
-msgstr "Minunat, arată-mi opțiunile!"
 
 #: admin/class-admin.php:88
 #| msgid "Awesome, WCA: Google Tools Extension is activated!"
@@ -38,6 +33,26 @@ msgstr "Accesați opțiunile temei pentru a vă configura serviciile Google."
 #. Author URI of the plugin
 msgid "https://www.wecodeart.com/"
 msgstr "https://www.wecodeart.com/"
+
+#: admin/class-admin.php:172
+msgid "Leave a Review"
+msgstr "Lasă o recenzie"
+
+#: admin/class-admin.php:192
+msgid "Navigate to the extension settings."
+msgstr "Navigați la setările extensiei."
+
+#: admin/class-admin.php:171
+msgid "Review plugin on WordPress.org"
+msgstr "Examinați pluginul pe WordPress.org"
+
+#: admin/class-admin.php:193
+msgid "Settings"
+msgstr "Setări"
+
+#: admin/class-admin.php:91
+msgid "Show me the options!"
+msgstr "Arată-mi opțiunile!"
 
 #: includes/class-activator.php:36
 msgid ""
