@@ -32,7 +32,7 @@ class Activator {
 	 */
 	public static function activate() {
 		if ( ! self::if_compatible() ) {
-			deactivate_plugins( plugin_basename( __FILE__ ) );
+			deactivate_plugins( WCA_GOOGLE_EXT_BASE );
 			wp_die( __( 'This plugin requires WeCodeArt Framework (or a skin) installed and active.', 'wca-google' ) );
 		}
 	}

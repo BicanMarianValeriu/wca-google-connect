@@ -12,6 +12,8 @@
 
 namespace WCA\EXT\Google;
 
+use WeCodeArt\Admin\Notifications;
+
 /**
  * Fired during plugin deactivation.
  *
@@ -31,6 +33,8 @@ class Deactivator {
 	 * @since    1.0.0
 	 */
 	public static function deactivate() {
+		Notifications::get_instance()->remove_notification_by_id( Admin::NOTICE_ID );
+		
 		delete_transient( Admin::NOTICE_ID );
 	}
 }

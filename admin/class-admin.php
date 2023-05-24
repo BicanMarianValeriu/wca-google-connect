@@ -28,7 +28,7 @@ use function WeCodeArt\Functions\get_prop;
  */
 class Admin {
 
-	const NOTICE_ID = 'wecodeart/extension/google';
+	const NOTICE_ID = 'wecodeart/plugin/google/notice';
 
 	/**
 	 * The ID of this plugin.
@@ -123,12 +123,7 @@ class Admin {
 		$name = wecodeart_if( 'is_dev_mode' ) ? 'admin' : 'admin.min';
 		$data = [
 			'version' 		=> $this->version,
-			'dependencies'	=> [
-				'wp-i18n',
-				'wp-hooks',
-				'wp-element',
-				'wp-components',
-			],
+			'dependencies'	=> [ 'wecodeart-admin' ],
 		];
 
 		wp_register_script( 
