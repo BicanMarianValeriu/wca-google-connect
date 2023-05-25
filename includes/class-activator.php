@@ -23,6 +23,7 @@ namespace WCA\EXT\Google;
  * @author     Bican Marian Valeriu <marianvaleriubican@gmail.com>
  */
 class Activator {
+
 	/**
 	 * Short Description. (use period)
 	 *
@@ -30,7 +31,7 @@ class Activator {
 	 *
 	 * @since    1.0.0
 	 */
-	public static function activate() {
+	public static function run() {
 		if ( ! self::if_compatible() ) {
 			deactivate_plugins( WCA_GOOGLE_EXT_BASE );
 			wp_die( __( 'This plugin requires WeCodeArt Framework (or a skin) installed and active.', 'wca-google' ) );

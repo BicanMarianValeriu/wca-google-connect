@@ -45,22 +45,9 @@ new WCA\EXT\Google\Autoloader( 'WCA\EXT\Google', __DIR__ . '/includes' );
 new WCA\EXT\Google\Autoloader( 'WCA\EXT\Google', __DIR__ . '/frontend' );
 new WCA\EXT\Google\Autoloader( 'WCA\EXT\Google', __DIR__ . '/admin' );
 
-/**
- * The code that runs during plugin activation.
- */
-function activate_wca_google() {
-	WCA\EXT\Google\Activator::activate();
-}
-
-/**
- * The code that runs during plugin deactivation.
- */
-function deactivate_wca_google() {
-	WCA\EXT\Google\Deactivator::deactivate();
-}
-
-register_activation_hook( __FILE__, 'activate_wca_google' );
-register_deactivation_hook( __FILE__, 'deactivate_wca_google' );
+// Activation/Deactivation Hooks
+register_activation_hook( WCA_GOOGLE_EXT, [ Activator::class, 'run' ] );
+register_deactivation_hook( WCA_GOOGLE_EXT, [ Deactivator::class, 'run' ] );
 
 /**
  * Hook the extension after WeCodeArt is Loaded
