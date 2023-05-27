@@ -1,5 +1,4 @@
 <?php
-
 /**
  * The plugin bootstrap file
  *
@@ -19,11 +18,14 @@
  * Version:           2.0.2
  * Author:            Bican Marian Valeriu
  * Author URI:        https://www.wecodeart.com/
- * License:           GPL-2.0+
- * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
+ * License:           GPL-3.0+
+ * License URI:       http://www.gnu.org/licenses/gpl-3.0.txt
  * Text Domain:       wca-google
  * Domain Path:       /languages
+ * Requires at least: 6.0
+ * Requires PHP:      7.4
  */
+namespace WCA\EXT\Google;
 
 // If this file is called directly, abort.
 defined( 'WPINC' ) || die;
@@ -39,11 +41,11 @@ define( 'WCA_GOOGLE_EXT_DIR', 	plugin_dir_path( WCA_GOOGLE_EXT ) );
 define( 'WCA_GOOGLE_EXT_URL', 	plugin_dir_url( WCA_GOOGLE_EXT ) );
 define( 'WCA_GOOGLE_EXT_BASE', 	plugin_basename( WCA_GOOGLE_EXT ) );
 
-require_once( __DIR__ . '/includes/class-autoloader.php' );
+require_once( WCA_GOOGLE_EXT_DIR . '/includes/class-autoloader.php' );
 
-new WCA\EXT\Google\Autoloader( 'WCA\EXT\Google', __DIR__ . '/includes' );
-new WCA\EXT\Google\Autoloader( 'WCA\EXT\Google', __DIR__ . '/frontend' );
-new WCA\EXT\Google\Autoloader( 'WCA\EXT\Google', __DIR__ . '/admin' );
+new Autoloader( 'WCA\EXT\Google', WCA_GOOGLE_EXT_DIR . '/includes' );
+new Autoloader( 'WCA\EXT\Google', WCA_GOOGLE_EXT_DIR . '/frontend' );
+new Autoloader( 'WCA\EXT\Google', WCA_GOOGLE_EXT_DIR . '/admin' );
 
 // Activation/Deactivation Hooks
 register_activation_hook( WCA_GOOGLE_EXT, [ Activator::class, 'run' ] );
@@ -52,6 +54,4 @@ register_deactivation_hook( WCA_GOOGLE_EXT, [ Deactivator::class, 'run' ] );
 /**
  * Hook the extension after WeCodeArt is Loaded
  */
-add_action( 'wecodeart/theme/loaded', function() {
-	wecodeart( 'integrations' )->register( 'extension/google', WCA\EXT\Google::class );
-} );
+add_action( 'wecodeart/theme/loaded', fn() => wecodeart( 'integrations' )->register( 'plugin/google', __NAMESPACE__ ) );
