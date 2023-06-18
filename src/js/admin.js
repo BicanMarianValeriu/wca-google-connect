@@ -16,7 +16,7 @@ const {
     },
     components: {
         Placeholder,
-        BaseControl,
+        TextControl,
         ExternalLink,
         Spinner,
         Button,
@@ -48,12 +48,11 @@ const Options = (props) => {
         }} />;
     }
 
-    let googleFields = applyFilters('wecodeart.admin.extensions.google.fields', fields, props);
+    let googleFields = applyFilters('wecodeart.admin.plugins.google.fields', fields, props);
     googleFields = googleFields.filter(({ id = '', label = '' }) => id !== '' && label !== '');
 
     const [loading, setLoading] = useState(null);
-    const extensionOpts = fields.map(a => a.id);
-    const apiOptions = Object.fromEntries(Object.entries(settings ?? wecodeartSettings).filter(([key]) => extensionOpts.includes(key)));
+    const apiOptions = (({ google }) => (google))(settings ?? wecodeartSettings);
     const [formData, setFormData] = useState(apiOptions);
 
     const handleNotice = () => {
@@ -79,15 +78,11 @@ const Options = (props) => {
                                 <tr>
                                     <td><strong>{label}</strong></td>
                                     <td>
-                                        <BaseControl className="wecodeart-button-field" {...{ id, key: id }}>
-                                            <input
-                                                id={id}
-                                                type="text"
-                                                value={formData[id]}
-                                                placeholder={placeholder}
-                                                onChange={({ target: { value } }) => setFormData({ ...formData, [id]: value })}
-                                            />
-                                        </BaseControl>
+                                        <TextControl
+                                            value={formData?.[id]}
+                                            placeholder={placeholder}
+                                            onChange={(value) => setFormData({ ...formData, [id]: value })}
+                                        />
                                     </td>
                                     <td>
                                         <div className="wecodeart-button-group">
@@ -111,7 +106,7 @@ const Options = (props) => {
                 icon={loading && <Spinner />}
                 onClick={() => {
                     setLoading(true);
-                    saveSettings(formData, handleNotice);
+                    saveSettings({ google: formData }, handleNotice);
                 }}
                 {...{ disabled: loading }}
             >

@@ -108,7 +108,7 @@ const {
   },
   components: {
     Placeholder,
-    BaseControl,
+    TextControl,
     ExternalLink,
     Spinner,
     Button
@@ -143,7 +143,7 @@ const Options = props => {
       instructions: __('Please wait, loading settings...', 'wca-google')
     });
   }
-  let googleFields = applyFilters('wecodeart.admin.extensions.google.fields', fields, props);
+  let googleFields = applyFilters('wecodeart.admin.plugins.google.fields', fields, props);
   googleFields = googleFields.filter(_ref => {
     let {
       id = '',
@@ -152,11 +152,12 @@ const Options = props => {
     return id !== '' && label !== '';
   });
   const [loading, setLoading] = useState(null);
-  const extensionOpts = fields.map(a => a.id);
-  const apiOptions = Object.fromEntries(Object.entries(settings !== null && settings !== void 0 ? settings : wecodeartSettings).filter(_ref2 => {
-    let [key] = _ref2;
-    return extensionOpts.includes(key);
-  }));
+  const apiOptions = (_ref2 => {
+    let {
+      google
+    } = _ref2;
+    return google;
+  })(settings !== null && settings !== void 0 ? settings : wecodeartSettings);
   const [formData, setFormData] = useState(apiOptions);
   const handleNotice = () => {
     setLoading(false);
@@ -177,27 +178,14 @@ const Options = props => {
       externalUrl = '',
       placeholder
     } = _ref3;
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("tr", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("td", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("strong", null, label)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("td", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(BaseControl, {
-      className: "wecodeart-button-field",
-      id,
-      key: id
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
-      id: id,
-      type: "text",
-      value: formData[id],
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("tr", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("td", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("strong", null, label)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("td", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(TextControl, {
+      value: formData?.[id],
       placeholder: placeholder,
-      onChange: _ref4 => {
-        let {
-          target: {
-            value
-          }
-        } = _ref4;
-        return setFormData({
-          ...formData,
-          [id]: value
-        });
-      }
-    }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("td", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      onChange: value => setFormData({
+        ...formData,
+        [id]: value
+      })
+    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("td", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: "wecodeart-button-group"
     }, externalUrl !== '' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ExternalLink, {
       href: externalUrl,
@@ -210,7 +198,9 @@ const Options = props => {
     icon: loading && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Spinner, null),
     onClick: () => {
       setLoading(true);
-      saveSettings(formData, handleNotice);
+      saveSettings({
+        google: formData
+      }, handleNotice);
     },
     disabled: loading
   }, loading ? '' : __('Save', 'wecodeart')));

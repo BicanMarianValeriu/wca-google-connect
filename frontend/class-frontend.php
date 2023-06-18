@@ -84,13 +84,15 @@ class Frontend {
 			return wp_array_slice_assoc( $item, [ 'id', 'hook', 'callback' ] );
 		}, $config );
 
+		$options = wecodeart_option( 'google', [] );
+
 		// Generate output
 		foreach( $config as $field ) {
 			if( ! isset( $field['id'] ) || ! isset( $field['hook'] ) || ! isset( $field['callback'] ) ) continue;
 
 			$callback	= $field['callback'];
 
-			$value		= wecodeart_option( $field['id'] );
+			$value		= get_prop( $options, $field['id'] );
 
 			if( empty( $value ) ) continue;
 			

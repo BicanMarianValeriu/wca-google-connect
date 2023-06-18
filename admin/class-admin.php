@@ -194,6 +194,44 @@ class Admin {
 	}
 
 	/**
+	 * Migrate settings
+	 *
+	 * @since	2.0.2
+ 	 * @version	2.0.2
+	 *
+	 * @return 	void
+	 */
+	public function migrate() {
+		if( wecodeart_option( 'google' ) ) {
+			return;
+		}
+
+		$new_settings = [];
+
+		foreach( self::get_defaults() as $item ) {
+			$key = get_prop( $item, 'id' );
+
+			// Get old option
+			$val = wecodeart_option( "google_$key" );
+			
+			if( ! $val ) continue;
+			
+			$new_settings[$key] = $val;
+
+			// Delete old option
+			wecodeart_option( [
+				"google_$key" => 'unset'
+			] );
+		}
+
+		if( empty( $new_settings ) ) return;
+
+		wecodeart_option( [
+			'google' => $new_settings
+		] );
+	}
+
+	/**
 	 * Make a script handle from the classname
 	 *
 	 * @since	2.0.1
@@ -221,7 +259,7 @@ class Admin {
 	public static function get_defaults(): array {
 		return [
 			[
-				'id' 			=> 'google_webmasters',
+				'id' 			=> 'webmasters',
 				'label' 		=> 'Webmasters',
 				'externalUrl' 	=> '//support.google.com/webmasters/answer/9008080?hl=en',
 				'placeholder' 	=> 'xIzf4xC9psNX-fKBobS9AFzpK7__umVaw3eH9T-1WCA',
@@ -229,7 +267,7 @@ class Admin {
 				'callback' 		=> '<meta name="google-site-verification" content="%s" />'
 			],
 			[
-				'id' 			=> 'google_analytics',
+				'id' 			=> 'analytics',
 				'label' 		=> 'Analytics',
 				'externalUrl' 	=> '//support.google.com/analytics/answer/9539598?hl=en',
 				'placeholder' 	=> 'UA-XXXXXXXX-X | G-XXXXXXXXXX',
@@ -250,7 +288,7 @@ class Admin {
 				},
 			],
 			[
-				'id' 			=> 'google_publisher',
+				'id' 			=> 'publisher',
 				'label' 		=> 'Adsense',
 				'externalUrl' 	=> '//support.google.com/adsense/answer/105516?hl=en',
 				'placeholder' 	=> 'ca-pub-1234567891234567',
